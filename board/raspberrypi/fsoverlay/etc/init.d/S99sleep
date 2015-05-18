@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# sleep
+#
+
+case "$1" in
+  start)
+	sleep 2
+	;;
+  stop)
+	;;
+  restart|reload)
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?

@@ -1,11 +1,11 @@
 #!/bin/sh
 #
-# Watch for network adapter
+# sleep
 #
 
 case "$1" in
   start)
-	/bin/echo /root/checketh.sh > /proc/sys/kernel/hotplug
+	sleep 2
 	;;
   stop)
 	;;
@@ -17,4 +17,3 @@ case "$1" in
 esac
 
 exit $?
-

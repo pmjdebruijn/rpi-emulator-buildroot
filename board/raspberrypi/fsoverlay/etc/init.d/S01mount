@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# mount
+#
+
+case "$1" in
+  start)
+	echo -n "Mounting SD card: "
+	/sbin/fsck.fat -a /dev/mmcblk0p1 >/dev/null 2>&1
+	/bin/mount -o rw,sync,relatime,nodev,noexec,nosuid /dev/mmcblk0p1 /mnt >/dev/null 2>&1
+	[ $? = 0 ] && echo "OK" || echo "FAIL"
+	;;
+  stop)
+	echo -n "Unmounting SD card: "
+	/bin/umount /dev/mmcblk0p1 >/dev/null 2>&1
+	[ $? = 0 ] && echo "OK" || echo "FAIL"
+	;;
+  restart|reload)
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
