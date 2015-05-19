@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# config
+#
+
+case "$1" in
+  start)
+	echo -n "Applying configuration: "
+	cp -f /mnt/conf/net/interfaces              /etc/network            >/dev/null 2>&1
+	cp -f /mnt/conf/ssh/dropbear_dss_host_key   /etc/dropbear           >/dev/null 2>&1
+	cp -f /mnt/conf/ssh/dropbear_rsa_host_key   /etc/dropbear           >/dev/null 2>&1
+	cp -f /mnt/conf/ssh/dropbear_ecdsa_host_key /etc/dropbear           >/dev/null 2>&1
+	cp -f /mnt/conf/emu/es_input.cfg            /root/.emulationstation >/dev/null 2>&1
+	cp -f /mnt/conf/emu/retroarch.cfg           /root/.config/retroarch >/dev/null 2>&1
+	echo "OK"
+	;;
+  stop)
+	;;
+  restart|reload)
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
