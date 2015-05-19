@@ -1,0 +1,22 @@
+#! /bin/sh
+#
+# urandom
+#
+
+[ -c /dev/urandom ] || exit 0
+
+case "$1" in
+  start|"")
+	echo -n "Initializing random number generator: "
+	dd if=/dev/hwrng of=/dev/urandom bs=512 skip=1 count=1 >/dev/null 2>&1
+	[ $? = 0 ] && echo "OK" || echo "FAIL"
+	;;
+  stop)
+	;;
+  restart|reload)
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+	;;
+esac
