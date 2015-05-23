@@ -181,7 +181,7 @@ menu "Emulators"
         source "package/retroarch/Config.in"
 if BR2_PACKAGE_RETROARCH
 menu "Libretro Cores"
-       source "package/armsnes/Config.in"
+	source "package/armsnes/Config.in"
 endmenu
 endif
 endmenu
