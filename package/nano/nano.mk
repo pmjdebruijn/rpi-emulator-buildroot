@@ -20,6 +20,8 @@ else
 	NANO_CONF_ENV += ac_cv_lib_magic_magic_open=no
 endif
 
+NANO_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -DGNU_WORDBOUNDS=1"
+
 ifeq ($(BR2_PACKAGE_NANO_TINY),y)
 	NANO_CONF_OPT += --enable-tiny
 define NANO_INSTALL_TARGET_CMDS
