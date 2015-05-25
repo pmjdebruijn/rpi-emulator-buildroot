@@ -1,0 +1,4 @@
+include "/usr/share/nano/sh.nanorc"
+include "/usr/share/nano/xml.nanorc"
+include "/usr/share/nano/awk.nanorc"
+include "/usr/share/nano/patch.nanorc"
